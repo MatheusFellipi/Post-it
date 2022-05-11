@@ -20,3 +20,5 @@ AppDataSource.initialize()
     console.log("running database");
   })
   .catch((error) => console.log(error));
+
+export { AppDataSource };
