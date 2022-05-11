@@ -1,18 +1,27 @@
 import express, { Express } from "express";
 import "express-async-errors";
-import "@Shared/Infra/Typeorm";
+import { Routes } from "./Routes";
+// import "@Shared/Infra/Typeorm";
 
 export class Server {
-  app: Express;
-  port: string;
+  private _app: Express;
+  private port: string;
+  private route: Routes;
 
   constructor() {
-    this.app = express();
+    this._app = express();
     this.port = process.env.PORT || "3333";
+    this.route = new Routes();
+  }
+
+  routes() {
+    this._app.use(this.route.routes);
   }
 
   Start() {
-    this.app.listen(this.port, () => {
+    this.routes();
+
+    this._app.listen(this.port, () => {
       console.log("running server " + this.port);
     });
   }
