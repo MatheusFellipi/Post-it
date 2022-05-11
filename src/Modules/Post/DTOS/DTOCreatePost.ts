@@ -2,5 +2,5 @@ export interface DTOCreatePost {
   id?: string;
   titulo: string;
   description: string;
-  finalized: string;
+  finalized: boolean;
 }
