@@ -12,8 +12,8 @@ class PostIt {
   @Column("varchar")
   description!: string;
 
-  @Column("varchar")
-  finalized!: string;
+  @Column("boolean")
+  finalized!: boolean;
 
   @UpdateDateColumn()
   update_at!: Date;
