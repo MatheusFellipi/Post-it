@@ -1,8 +1,10 @@
-import { AppError } from "@Shared/Errors/AppError";
 import express, { Express, NextFunction, Request, Response } from "express";
-import "express-async-errors";
-import { Routes } from "./Routes";
 // import "@Shared/Infra/Typeorm";
+import "express-async-errors";
+import cors from "cors";
+
+import { AppError } from "@Shared/Errors/AppError";
+import { Routes } from "./Routes";
 
 export class Server {
   private _app: Express;
@@ -13,6 +15,10 @@ export class Server {
     this._app = express();
     this.port = process.env.PORT || "3333";
     this.route = new Routes();
+  }
+
+  middlewares() {
+    this._app.use(cors());
   }
 
   routes() {
