@@ -1,7 +1,7 @@
 import { container, delay } from "tsyringe";
 
-import { IPostRepository } from "@Modules/Post/Repositories/IPostRepository";
-import { PostItRepository } from "@Modules/Post/Infra/Typeorm/Repositories/PostRepository";
+import { IPostRepository } from "modules/post/repositories/IPostRepository";
+import { PostItRepository } from "modules/post/infra/typeorm/repositories/PostRepository";
 
 container.registerSingleton<IPostRepository>(
   "PostRepository",

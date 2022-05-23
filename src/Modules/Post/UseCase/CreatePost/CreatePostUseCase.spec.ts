@@ -1,5 +1,5 @@
-import { PostRepositoryInMemory } from "@Modules/Post/Repositories/in-memory/PostRepositoryInMemory";
-import { AppError } from "@Shared/Errors/AppError";
+import { PostRepositoryInMemory } from "modules/post/repositories/in-memory/PostRepositoryInMemory";
+import { AppError } from "@Shared/errors/AppError";
 import { CreatePostUseCase } from "./CreatePostUseCase";
 
 describe("Create post it", () => {

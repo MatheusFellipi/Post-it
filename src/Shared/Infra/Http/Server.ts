@@ -1,7 +1,7 @@
-import { AppError } from "@Shared/Errors/AppError";
+import { AppError } from "@Shared/errors/AppError";
 import express, { Express, NextFunction, Request, Response } from "express";
 import "express-async-errors";
-import { Routes } from "./Routes";
+import { Routes } from "./routes";
 // import "@Shared/Infra/Typeorm";
 
 export class Server {

@@ -1,5 +1,5 @@
-import { DTOCreatePost } from "@Modules/Post/DTOS/DTOCreatePost";
-import { PostIt } from "@Modules/Post/Infra/Typeorm/Entities/Postit";
+import { DTOCreatePost } from "modules/post/dtos/DTOCreatePost";
+import { PostIt } from "modules/post/infra/typeorm/entities/Postit";
 import { IPostRepository } from "../IPostRepository";
 
 export class PostRepositoryInMemory implements IPostRepository {

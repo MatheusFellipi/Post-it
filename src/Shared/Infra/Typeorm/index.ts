@@ -16,7 +16,6 @@ const AppDataSource = new DataSource({
 
 AppDataSource.initialize()
   .then((res) => {
-    // here you can start to work with your database
     console.log("running database");
   })
   .catch((error) => console.log(error));

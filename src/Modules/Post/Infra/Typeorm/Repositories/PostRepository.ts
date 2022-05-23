@@ -1,8 +1,8 @@
 import { Repository, DataSource } from "typeorm";
-import { DTOCreatePost } from "@Modules/Post/DTOS/DTOCreatePost";
-import { IPostRepository } from "@Modules/Post/Repositories/IPostRepository";
-import { PostIt } from "../Entities/Postit";
-import { AppDataSource } from "@Shared/Infra/Typeorm";
+import { DTOCreatePost } from "modules/post/dtos/DTOCreatePost";
+import { IPostRepository } from "modules/post/repositories/IPostRepository";
+import { PostIt } from "../entities/Postit";
+import { AppDataSource } from "@Shared/infra/Typeorm";
 
 class PostItRepository implements IPostRepository {
   private repository: Repository<PostIt>;
