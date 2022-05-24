@@ -1,6 +1,6 @@
-export interface DTOCreatePost {
+export interface CreatePostDTO {
   id?: string;
   titulo: string;
   description: string;
-  finalized: boolean;
+  status: string;
 }
