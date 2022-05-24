@@ -7,11 +7,11 @@ const AppDataSource = new DataSource({
   username: "docker",
   password: "post",
   database: "post",
-  entities: ["./src/Modules/**/Entities/*.ts"],
-  migrations: ["./src/Shared/Infra/Typeorm/Migrations/*.ts"],
+  entities: ["./src/modules/**/entities/*.ts"],
+  migrations: ["./src/shared/infra/typeorm/migrations/*.ts"],
+  migrationsTableName: "./src/shared/infra/typeorm/migrations",
   synchronize: true,
   logging: false,
-  migrationsTableName: "./src/Shared/Infra/Typeorm/Migrations",
 });
 
 AppDataSource.initialize()
