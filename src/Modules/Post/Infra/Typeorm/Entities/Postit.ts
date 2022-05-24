@@ -13,7 +13,7 @@ class PostIt {
   description!: string;
 
   @Column("varchar")
-  finalized!: string;
+  status!: string;
 
   @UpdateDateColumn()
   update_at!: Date;
