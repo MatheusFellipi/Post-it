@@ -4,12 +4,12 @@ import { CreatePostUseCase } from "./CreatePostUseCase";
 
 class CreatePostItController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { titulo, description, finalized } = request.body;
+    const { titulo, description, status } = request.body;
 
     const createPostUseCase = container.resolve(CreatePostUseCase);
     await createPostUseCase.execute({
       description,
-      finalized,
+      status,
       titulo,
     });
 

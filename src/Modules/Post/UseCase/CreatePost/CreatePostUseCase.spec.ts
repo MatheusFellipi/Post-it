@@ -1,5 +1,5 @@
-import { PostRepositoryInMemory } from "modules/post/repositories/in-memory/PostRepositoryInMemory";
-import { AppError } from "@Shared/errors/AppError";
+import { PostRepositoryInMemory } from "@modules/post/repositories/in-memory/postRepositoryInMemory";
+import { AppError } from "@shared/errors/appError";
 import { CreatePostUseCase } from "./CreatePostUseCase";
 
 describe("Create post it", () => {
@@ -15,7 +15,7 @@ describe("Create post it", () => {
     const post = {
       titulo: "Teste",
       description: "Oi eu sou um teste",
-      finalized: false,
+      status: "FAZENDO",
     };
 
     await createThemesUseCase.execute(post);
@@ -27,7 +27,7 @@ describe("Create post it", () => {
     const post = {
       titulo: "Teste",
       description: "Oi eu sou um teste",
-      finalized: false,
+      status: "FAZENDO",
     };
 
     await createThemesUseCase.execute(post);
@@ -40,7 +40,7 @@ describe("Create post it", () => {
       const post = {
         titulo: "",
         description: "",
-        finalized: false,
+        status: "FAZENDO",
       };
 
       await createThemesUseCase.execute(post);

@@ -1,5 +1,5 @@
 import { Repository, DataSource } from "typeorm";
-import { IPostRepository } from "modules/post/repositories/IPostRepository";
+import { IPostRepository } from "@modules/post/repositories/iPostRepository";
 import { PostIt } from "../entities/postit";
 import { AppDataSource } from "@shared/infra/typeorm";
 import { CreatePostDTO } from "@modules/post/dtos/createPostDTO";
