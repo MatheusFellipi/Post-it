@@ -1,4 +1,8 @@
+import 'reflect-metadata';
+require('dotenv').config({ path: __dirname + '/.env' });
 import express, { Express, NextFunction, Request, Response } from "express";
+import cors from "cors";
+import '@shared/container';
 import "express-async-errors";
 import "@shared/infra/typeorm";
 
@@ -16,11 +20,12 @@ export class Server {
     this.route = new Routes();
   }
 
-  Routes() {
+  private Routes() {
     this._app.use(this.route.routes);
   }
 
   Start() {
+    this.Middlewares() 
     this.Routes();
 
     this._app.use((error: Error, request: Request, response: Response) => {
@@ -38,5 +43,10 @@ export class Server {
     this._app.listen(this.port, () => {
       console.log("running server " + this.port);
     });
+  }
+
+  private Middlewares() {
+    this._app.use(cors());
+    this._app.use(express.json());
   }
 }
