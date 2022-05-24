@@ -1,8 +1,9 @@
-import { AppError } from "@Shared/errors/AppError";
 import express, { Express, NextFunction, Request, Response } from "express";
 import "express-async-errors";
+import "@shared/infra/typeorm";
+
+import { AppError } from "@shared/errors/appError";
 import { Routes } from "./routes";
-// import "@Shared/Infra/Typeorm";
 
 export class Server {
   private _app: Express;
@@ -15,12 +16,12 @@ export class Server {
     this.route = new Routes();
   }
 
-  routes() {
+  Routes() {
     this._app.use(this.route.routes);
   }
 
   Start() {
-    this.routes();
+    this.Routes();
 
     this._app.use((error: Error, request: Request, response: Response) => {
       if (error instanceof AppError) {
