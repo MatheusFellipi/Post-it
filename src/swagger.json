@@ -9,13 +9,13 @@
     }
   },
   "paths": {
-    "/taks": {
+    "/task": {
       "post": {
         "tags": [
-          "taks"
+          "Task"
         ],
-        "summary": "Create a taks",
-        "description": "Create a new taks",
+        "summary": "Create a task",
+        "description": "Create a new task",
         "requestBody": {
           "content": {
             "application/json": {
@@ -33,7 +33,7 @@
                   }
                 },
                 "example": {
-                  "title": "new taks",
+                  "title": "new task",
                   "status":"FAZENDO", 
                   "description": "Description in task"
                 }
