@@ -1,5 +1,5 @@
-import { PostRepositoryInMemory } from "@Modules/Post/Repositories/in-memory/PostRepositoryInMemory";
-import { AppError } from "@Shared/Errors/AppError";
+import { PostRepositoryInMemory } from "@modules/post/repositories/in-memory/postRepositoryInMemory";
+import { AppError } from "@shared/errors/appError";
 import { CreatePostUseCase } from "./CreatePostUseCase";
 
 describe("Create post it", () => {
@@ -13,21 +13,21 @@ describe("Create post it", () => {
 
   it("should be able to create new post", async () => {
     const post = {
-      titulo: "Teste",
+      title: "Teste",
       description: "Oi eu sou um teste",
-      finalized: false,
+      status: "FAZENDO",
     };
 
     await createThemesUseCase.execute(post);
     const res = await postRepositoryInMemory.list();
 
-    expect(res[0].titulo).toBe(post.titulo);
+    expect(res[0].title).toBe(post.title);
   });
   it("should be able to list", async () => {
     const post = {
-      titulo: "Teste",
+      title: "Teste",
       description: "Oi eu sou um teste",
-      finalized: false,
+      status: "FAZENDO",
     };
 
     await createThemesUseCase.execute(post);
@@ -38,9 +38,9 @@ describe("Create post it", () => {
   it("should be able not create a post", async () => {
     expect(async () => {
       const post = {
-        titulo: "",
+        title: "",
         description: "",
-        finalized: false,
+        status: "FAZENDO",
       };
 
       await createThemesUseCase.execute(post);

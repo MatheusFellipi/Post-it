@@ -1,8 +1,9 @@
 import { Repository, DataSource } from "typeorm";
-import { DTOCreatePost } from "@Modules/Post/DTOS/DTOCreatePost";
-import { IPostRepository } from "@Modules/Post/Repositories/IPostRepository";
-import { PostIt } from "../Entities/Postit";
-import { AppDataSource } from "@Shared/Infra/Typeorm";
+import { IPostRepository } from "@modules/post/repositories/iPostRepository";
+import { PostIt } from "../entities/postit";
+import { AppDataSource } from "@shared/infra/typeorm";
+import { CreatePostDTO } from "@modules/post/dtos/createPostDTO";
+
 
 class PostItRepository implements IPostRepository {
   private repository: Repository<PostIt>;
@@ -13,10 +14,10 @@ class PostItRepository implements IPostRepository {
 
   async create({
     description,
-    finalized,
-    titulo,
-  }: DTOCreatePost): Promise<void> {
-    const post = this.repository.create({ description, finalized, titulo });
+    status,
+    title,
+  }: CreatePostDTO): Promise<void> {
+    const post = this.repository.create({ description, status, title });
 
     await this.repository.save(post);
   }

@@ -1,27 +1,27 @@
-import { IPostRepository } from "@Modules/Post/Repositories/IPostRepository";
-import { AppError } from "@Shared/Errors/AppError";
+import { IPostRepository } from "@modules/post/repositories/iPostRepository";
+import { AppError } from "@shared/errors/appError";
 import { inject, injectable } from "tsyringe";
 
 interface IRequest {
   id?: string;
-  titulo: string;
+  title: string;
   description: string;
-  finalized: boolean;
+  status: string;
 }
 
 @injectable()
 class CreatePostUseCase {
   constructor(
     @inject("PostRepository")
-    private articleRepository: IPostRepository
+    private repository: IPostRepository
   ) {}
 
-  async execute({ description, finalized, titulo }: IRequest): Promise<void> {
-    if (description.length === 0 || titulo.length === 0) {
+  async execute({ description, status, title }: IRequest): Promise<void> {
+    if (description.length === 0 || title.length === 0) {
       throw new AppError("description and title cannot be null");
     }
 
-    this.articleRepository.create({ description, finalized, titulo });
+    this.repository.create({ description, status, title });
   }
 }
 export { CreatePostUseCase };

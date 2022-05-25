@@ -1,10 +1,14 @@
-import express, { Express, NextFunction, Request, Response } from "express";
-// import "@Shared/Infra/Typeorm";
+import 'reflect-metadata';
+import '@shared/container';
+import "@shared/infra/typeorm";
 import "express-async-errors";
+require('dotenv').config({ path: __dirname + '/.env' });
+import express, { Express, NextFunction, Request, Response } from "express";
 import cors from "cors";
-
-import { AppError } from "@Shared/Errors/AppError";
-import { Routes } from "./Routes";
+import swaggerUi from "swagger-ui-express";
+import swaggerFile from "../../../swagger.json";
+import { AppError } from "@shared/errors/appError";
+import { Routes } from "./routes";
 
 export class Server {
   private _app: Express;
@@ -17,16 +21,13 @@ export class Server {
     this.route = new Routes();
   }
 
-  middlewares() {
-    this._app.use(cors());
-  }
-
-  routes() {
+  private Routes() {
     this._app.use(this.route.routes);
   }
 
   Start() {
-    this.routes();
+    this.Middlewares()
+    this.Routes();
 
     this._app.use((error: Error, request: Request, response: Response) => {
       if (error instanceof AppError) {
@@ -43,5 +44,11 @@ export class Server {
     this._app.listen(this.port, () => {
       console.log("running server " + this.port);
     });
+  }
+
+  private Middlewares() {
+    this._app.use(cors());
+    this._app.use(express.json());
+    this._app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
   }
 }

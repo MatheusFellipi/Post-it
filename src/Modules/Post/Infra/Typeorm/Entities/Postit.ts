@@ -7,13 +7,13 @@ class PostIt {
   id!: string;
 
   @Column("varchar")
-  titulo!: string;
+  title!: string;
 
   @Column("varchar")
   description!: string;
 
-  @Column("boolean")
-  finalized!: boolean;
+  @Column("varchar")
+  status!: string;
 
   @UpdateDateColumn()
   update_at!: Date;
