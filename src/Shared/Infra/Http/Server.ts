@@ -1,11 +1,12 @@
 import 'reflect-metadata';
+import '@shared/container';
+import "@shared/infra/typeorm";
+import "express-async-errors";
 require('dotenv').config({ path: __dirname + '/.env' });
 import express, { Express, NextFunction, Request, Response } from "express";
 import cors from "cors";
-import '@shared/container';
-import "express-async-errors";
-import "@shared/infra/typeorm";
-
+import swaggerUi from "swagger-ui-express";
+import swaggerFile from "../../../swagger.json";
 import { AppError } from "@shared/errors/appError";
 import { Routes } from "./routes";
 
@@ -25,7 +26,7 @@ export class Server {
   }
 
   Start() {
-    this.Middlewares() 
+    this.Middlewares()
     this.Routes();
 
     this._app.use((error: Error, request: Request, response: Response) => {
@@ -48,5 +49,6 @@ export class Server {
   private Middlewares() {
     this._app.use(cors());
     this._app.use(express.json());
+    this._app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
   }
 }
