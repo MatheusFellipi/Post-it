@@ -1,4 +1,4 @@
-import { IPostRepository } from "modules/post/repositories/iPostRepository";
+import { IPostRepository } from "@modules/post/repositories/iPostRepository";
 import { AppError } from "@shared/errors/appError";
 import { inject, injectable } from "tsyringe";
 

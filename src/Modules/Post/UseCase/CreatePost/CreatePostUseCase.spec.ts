@@ -13,7 +13,7 @@ describe("Create post it", () => {
 
   it("should be able to create new post", async () => {
     const post = {
-      titulo: "Teste",
+      title: "Teste",
       description: "Oi eu sou um teste",
       status: "FAZENDO",
     };
@@ -21,11 +21,11 @@ describe("Create post it", () => {
     await createThemesUseCase.execute(post);
     const res = await postRepositoryInMemory.list();
 
-    expect(res[0].titulo).toBe(post.titulo);
+    expect(res[0].title).toBe(post.title);
   });
   it("should be able to list", async () => {
     const post = {
-      titulo: "Teste",
+      title: "Teste",
       description: "Oi eu sou um teste",
       status: "FAZENDO",
     };
@@ -38,7 +38,7 @@ describe("Create post it", () => {
   it("should be able not create a post", async () => {
     expect(async () => {
       const post = {
-        titulo: "",
+        title: "",
         description: "",
         status: "FAZENDO",
       };

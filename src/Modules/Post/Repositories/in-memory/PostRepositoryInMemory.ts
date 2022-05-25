@@ -9,14 +9,14 @@ export class PostRepositoryInMemory implements IPostRepository {
   async create({
     description,
     status,
-    titulo,
+    title,
   }: CreatePostDTO): Promise<void> {
     const post = new PostIt();
 
     Object.assign(post, {
       description,
       status,
-      titulo,
+      title,
     });
 
     this._posts.push(post);
