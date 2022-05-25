@@ -1,4 +1,3 @@
-
 import { PostRepositoryInMemory } from "@modules/post/repositories/in-memory/postRepositoryInMemory";
 import { ListAllPostUseCase } from "./ListAllPostUseCase";
 
@@ -13,7 +12,7 @@ describe("Create post it", () => {
 
   it("should be able to list", async () => {
     const post = {
-      titulo: "Teste",
+      title: "Teste",
       description: "Oi eu sou um teste",
       status: "FAZENDO",
     };
