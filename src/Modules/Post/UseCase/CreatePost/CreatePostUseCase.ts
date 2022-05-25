@@ -4,7 +4,7 @@ import { inject, injectable } from "tsyringe";
 
 interface IRequest {
   id?: string;
-  titulo: string;
+  title: string;
   description: string;
   status: string;
 }
@@ -16,12 +16,12 @@ class CreatePostUseCase {
     private repository: IPostRepository
   ) {}
 
-  async execute({ description, status, titulo }: IRequest): Promise<void> {
-    if (description.length === 0 || titulo.length === 0) {
+  async execute({ description, status, title }: IRequest): Promise<void> {
+    if (description.length === 0 || title.length === 0) {
       throw new AppError("description and title cannot be null");
     }
 
-    this.repository.create({ description, status, titulo });
+    this.repository.create({ description, status, title });
   }
 }
 export { CreatePostUseCase };

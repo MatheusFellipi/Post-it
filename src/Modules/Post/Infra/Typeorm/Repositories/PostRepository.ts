@@ -15,9 +15,9 @@ class PostItRepository implements IPostRepository {
   async create({
     description,
     status,
-    titulo,
+    title,
   }: CreatePostDTO): Promise<void> {
-    const post = this.repository.create({ description, status, titulo });
+    const post = this.repository.create({ description, status, title });
 
     await this.repository.save(post);
   }

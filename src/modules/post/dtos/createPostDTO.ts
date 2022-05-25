@@ -1,6 +1,6 @@
 export interface CreatePostDTO {
   id?: string;
-  titulo: string;
+  title: string;
   description: string;
   status: string;
 }

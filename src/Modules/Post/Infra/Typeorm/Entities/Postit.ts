@@ -7,7 +7,7 @@ class PostIt {
   id!: string;
 
   @Column("varchar")
-  titulo!: string;
+  title!: string;
 
   @Column("varchar")
   description!: string;
