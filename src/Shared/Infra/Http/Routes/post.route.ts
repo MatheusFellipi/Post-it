@@ -15,7 +15,7 @@ export class PostRoutes {
   }
 
   Route() {
-    this.router.get("/post", this.listAllPostController.handle);
-    this.router.post("/post", this.createPostItController.handle);
+    this.router.get("/taks", this.listAllPostController.handle);
+    this.router.post("/taks", this.createPostItController.handle);
   }
 }
