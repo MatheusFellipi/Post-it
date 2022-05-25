@@ -7,7 +7,7 @@ export class Migrations1651677757715 implements MigrationInterface {
         name: "postit",
         columns: [
           { name: "id", type: "uuid" },
-          { name: "titulo", type: "varchar" },
+          { name: "title", type: "varchar" },
           { name: "description", type: "text" },
           { name: "status", type: "varchar", default: "false" },
           { name: "created_at", type: "timestamp", default: "now()" },
@@ -17,6 +17,6 @@ export class Migrations1651677757715 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable("post");
+    await queryRunner.dropTable("postit");
   }
 }
