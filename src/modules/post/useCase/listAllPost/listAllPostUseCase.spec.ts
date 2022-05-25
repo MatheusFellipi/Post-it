@@ -1,4 +1,4 @@
-import { PostRepositoryInMemory } from "@modules/post/repositories/in-memory/postRepositoryInMemory";
+import { PostRepositoryInMemory } from "@modules/post/repositories/in-memory/PostRepositoryInMemory";
 import { ListAllPostUseCase } from "./ListAllPostUseCase";
 
 describe("Create post it", () => {
@@ -21,5 +21,4 @@ describe("Create post it", () => {
     const res = await listAllUseCase.execute();
     expect(res.length).not.toBe(0);
   });
-
 });

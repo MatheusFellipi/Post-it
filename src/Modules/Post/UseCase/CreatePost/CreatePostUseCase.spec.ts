@@ -1,4 +1,4 @@
-import { PostRepositoryInMemory } from "@modules/post/repositories/in-memory/postRepositoryInMemory";
+import { PostRepositoryInMemory } from "@modules/post/repositories/in-memory/PostRepositoryInMemory";
 import { AppError } from "@shared/errors/appError";
 import { CreatePostUseCase } from "./CreatePostUseCase";
 

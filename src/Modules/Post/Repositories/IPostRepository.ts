@@ -1,5 +1,5 @@
 import { CreatePostDTO } from "../dtos/createPostDTO";
-import { PostIt } from "../infra/typeorm/entities/postit";
+import { PostIt } from "../infra/typeorm/entities/Postit";
 
 export interface IPostRepository {
   create(data: CreatePostDTO): Promise<void>;

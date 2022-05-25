@@ -1,8 +1,8 @@
-import 'reflect-metadata';
-import '@shared/container';
-import "@shared/infra/typeorm";
+import "reflect-metadata";
+import "@shared/container";
+import "@shared/Infra/typeorm";
 import "express-async-errors";
-require('dotenv').config({ path: __dirname + '/.env' });
+require("dotenv").config({ path: __dirname + "/.env" });
 import express, { Express, NextFunction, Request, Response } from "express";
 import cors from "cors";
 import swaggerUi from "swagger-ui-express";
@@ -26,7 +26,7 @@ export class Server {
   }
 
   Start() {
-    this.Middlewares()
+    this.Middlewares();
     this.Routes();
 
     this._app.use((error: Error, request: Request, response: Response) => {

@@ -1,4 +1,4 @@
-import { PostIt } from "@modules/post/infra/typeorm/entities/postit";
+import { PostIt } from "@modules/post/infra/typeorm/entities/Postit";
 import { IPostRepository } from "@modules/post/repositories/iPostRepository";
 import { inject, injectable } from "tsyringe";
 
@@ -10,7 +10,7 @@ class ListAllPostUseCase {
   ) {}
 
   async execute(): Promise<PostIt[]> {
-   return this.repository.list()
+    return this.repository.list();
   }
 }
 

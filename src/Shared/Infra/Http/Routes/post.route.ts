@@ -4,12 +4,12 @@ import { Router } from "express";
 
 export class PostRoutes {
   public router: Router;
-  private createPostItController: CreatePostItController
-  private listAllPostController: ListAllPostController
+  private createPostItController: CreatePostItController;
+  private listAllPostController: ListAllPostController;
 
   constructor(router: Router) {
-    this.createPostItController = new CreatePostItController()
-    this.listAllPostController = new ListAllPostController()
+    this.createPostItController = new CreatePostItController();
+    this.listAllPostController = new ListAllPostController();
     this.router = router;
     this.Route();
   }
