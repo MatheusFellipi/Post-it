@@ -1,5 +1,5 @@
-import { IPostRepository } from "@modules/post/repositories/iPostRepository";
-import { AppError } from "@shared/errors/appError";
+import { IPostRepository } from "@modules/post/repositories/IPostRepository";
+import { AppError } from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
 
 interface IRequest {

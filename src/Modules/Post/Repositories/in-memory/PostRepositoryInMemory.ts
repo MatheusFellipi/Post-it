@@ -1,17 +1,17 @@
 import { CreatePostDTO } from "@modules/post/dtos/createPostDTO";
 import { PostIt } from "@modules/post/infra/typeorm/entities/Postit";
-import { IPostRepository } from "../iPostRepository";
+import { IPostRepository } from "../IPostRepository";
 
 export class PostRepositoryInMemory implements IPostRepository {
   private _posts: PostIt[] = [];
 
-  async create({ description, status, titulo }: CreatePostDTO): Promise<void> {
+  async create({ description, status, title }: CreatePostDTO): Promise<void> {
     const post = new PostIt();
 
     Object.assign(post, {
       description,
       status,
-      titulo,
+      title,
     });
 
     this._posts.push(post);

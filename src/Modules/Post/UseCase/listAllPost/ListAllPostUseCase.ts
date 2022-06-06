@@ -1,5 +1,5 @@
 import { PostIt } from "@modules/post/infra/typeorm/entities/Postit";
-import { IPostRepository } from "@modules/post/repositories/iPostRepository";
+import { IPostRepository } from "@modules/post/repositories/IPostRepository";
 import { inject, injectable } from "tsyringe";
 
 @injectable()
